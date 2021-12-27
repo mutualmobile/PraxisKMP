@@ -2,10 +2,6 @@
 
 A library to use Kotlin Coroutines from Swift code in KMP apps.
 
-> :warning: **Note:** this branch contains the Swift Async/Await wrapper functions.  
-Swift Async/Await is a Swift 5.5 feature and requires Xcode 13 beta.  
-These wrapper functions can only be used in apps targeting iOS 15 and macOS 12.
-
 ## Why this library?
 
 Both KMP and Kotlin Coroutines are amazing but together they have some limitations.

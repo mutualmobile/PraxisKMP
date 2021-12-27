@@ -1,5 +1,7 @@
 package com.baseio.kmm.di
 
+import com.baseio.kmm.data.network.GithubTrendingAPI
+import com.baseio.kmm.data.network.GithubTrendingAPIImpl
 import io.ktor.client.*
 import io.ktor.client.engine.*
 import io.ktor.client.features.json.*
@@ -9,7 +11,7 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.context.startKoin
 import org.koin.core.module.Module
 import org.koin.dsl.module
-import com.squareup.sqldelight.db.SqlDriver
+import org.koin.core.component.get
 
 expect fun platformModule(): Module
 
@@ -19,9 +21,11 @@ fun initIosDependencies() = startKoin {
 
 val commonModule = module {
     single { httpClient(get()) }
+    single<GithubTrendingAPI> { GithubTrendingAPIImpl(get()) }
 }
 
 class IosComponent : KoinComponent {
+    fun provideGithubTrendingAPI(): GithubTrendingAPI = get()
 }
 
 private fun httpClient(httpClientEngine: HttpClientEngine) = HttpClient(httpClientEngine) {

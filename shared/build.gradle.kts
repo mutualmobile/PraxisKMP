@@ -2,6 +2,7 @@ plugins {
     kotlin("multiplatform")
     kotlin("native.cocoapods")
     id("com.android.library")
+    id("kotlinx-serialization")
     id("com.squareup.sqldelight")
     id("com.rickclephas.kmp.nativecoroutines")
 }

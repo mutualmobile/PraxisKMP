@@ -11,8 +11,10 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		12F72EEE657317AD0347C1FB /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2653B26BCBC847F765B563C5 /* Pods_iosApp.framework */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
-		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		7555FF83242A565900829871 /* GithubTrendingUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* GithubTrendingUI.swift */; };
 		89D841702779CFB200D08BC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D8416F2779CFB200D08BC0 /* AppDelegate.swift */; };
+		89D841732779D83600D08BC0 /* GithubTrendingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D841722779D83600D08BC0 /* GithubTrendingVM.swift */; };
+		89D841752779D8CD00D08BC0 /* UiRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D841742779D8CD00D08BC0 /* UiRepo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,9 +23,11 @@
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
 		2653B26BCBC847F765B563C5 /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7555FF82242A565900829871 /* GithubTrendingUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubTrendingUI.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89D8416F2779CFB200D08BC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		89D841722779D83600D08BC0 /* GithubTrendingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubTrendingVM.swift; sourceTree = "<group>"; };
+		89D841742779D8CD00D08BC0 /* UiRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiRepo.swift; sourceTree = "<group>"; };
 		95A4C568919CD765F48B4C71 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C000B12582D1C9BAAF385E15 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,14 +90,24 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				89D841712779D5E300D08BC0 /* githubtrending */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
-				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 				89D8416F2779CFB200D08BC0 /* AppDelegate.swift */,
 			);
 			path = iosApp;
+			sourceTree = "<group>";
+		};
+		89D841712779D5E300D08BC0 /* githubtrending */ = {
+			isa = PBXGroup;
+			children = (
+				7555FF82242A565900829871 /* GithubTrendingUI.swift */,
+				89D841722779D83600D08BC0 /* GithubTrendingVM.swift */,
+				89D841742779D8CD00D08BC0 /* UiRepo.swift */,
+			);
+			path = githubtrending;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,8 +225,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				89D841702779CFB200D08BC0 /* AppDelegate.swift in Sources */,
+				89D841752779D8CD00D08BC0 /* UiRepo.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
-				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				89D841732779D83600D08BC0 /* GithubTrendingVM.swift in Sources */,
+				7555FF83242A565900829871 /* GithubTrendingUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +369,7 @@
 					"-ObjC",
 					"-l\"c++\"",
 					"-framework",
-					"\"KMPNativeCoroutinesAsync\"",
+					"\"KMPNativeCoroutinesCombine\"",
 					"-framework",
 					"\"KMPNativeCoroutinesCore\"",
 					"-framework",
@@ -385,7 +401,7 @@
 					"-ObjC",
 					"-l\"c++\"",
 					"-framework",
-					"\"KMPNativeCoroutinesAsync\"",
+					"\"KMPNativeCoroutinesCombine\"",
 					"-framework",
 					"\"KMPNativeCoroutinesCore\"",
 					"-framework",

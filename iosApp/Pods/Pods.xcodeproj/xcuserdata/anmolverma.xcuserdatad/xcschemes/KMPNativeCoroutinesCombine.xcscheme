@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F91BAFE2F1386309176711630BA5305A"
-               BuildableName = "KMPNativeCoroutinesAsync.framework"
-               BlueprintName = "KMPNativeCoroutinesAsync"
+               BlueprintIdentifier = "3F9FD9D97D14F53EE028871E5A26555A"
+               BuildableName = "KMPNativeCoroutinesCombine.framework"
+               BlueprintName = "KMPNativeCoroutinesCombine"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

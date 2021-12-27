@@ -1,0 +1,14 @@
+CREATE TABLE Auth(
+uid TEXT NOT NULL PRIMARY KEY,
+jwt TEXT NOT NULL,
+refreshToken TEXT NOT NULL
+);
+
+insertAuth:
+INSERT OR REPLACE INTO Auth(uid, jwt, refreshToken) VALUES(?,?,?);
+
+selectAllAuth:
+SELECT * FROM Auth;
+
+deleteAllAuth:
+DELETE FROM Auth;

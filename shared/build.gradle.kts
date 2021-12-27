@@ -19,6 +19,11 @@ kotlin {
     watchosSimulatorArm64()
     iosSimulatorArm64() //sure all ios dependencies support this target
 
+    js(IR) {
+        useCommonJs()
+        browser()
+    }
+
     cocoapods {
         summary = "Some description for the Shared Module"
         homepage = "Link to the Shared Module homepage"
@@ -67,6 +72,11 @@ kotlin {
                 implementation("junit:junit:4.13.2")
             }
         }
+        val jsMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-js:1.6.7")
+            }
+        }
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
@@ -74,13 +84,13 @@ kotlin {
         val watchosSimulatorArm64Main by getting
         val watchosMain by getting
 
-        val macosX64Main by getting{
+        val macosX64Main by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-ios:1.6.7")
                 implementation("com.squareup.sqldelight:native-driver-macosx64:1.5.3")
             }
         }
-        val macosArm64Main by getting{
+        val macosArm64Main by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-ios:1.6.7")
                 implementation("com.squareup.sqldelight:native-driver-macosarm64:1.5.3")

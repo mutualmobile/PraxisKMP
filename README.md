@@ -9,7 +9,7 @@ Minimal **Kotlin Multiplatform** project with SwiftUI, Jetpack Compose, Compose 
 * watchOS (SwiftUI)
 * macOS (SwiftUI)
 
-### Architecture's layers & boundaries:
+### Screenshots
 
 <img src="art/art1.png" alt="drawing" style="width:200px;"/>
 

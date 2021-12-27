@@ -13,6 +13,8 @@ kotlin {
     android()
     iosX64()
     iosArm64()
+    watchos()
+    watchosSimulatorArm64()
     iosSimulatorArm64() //sure all ios dependencies support this target
 
     cocoapods {
@@ -26,8 +28,8 @@ kotlin {
     }
 
     sourceSets {
-        val commonMain by getting{
-            dependencies{
+        val commonMain by getting {
+            dependencies {
                 implementation("com.russhwolf:multiplatform-settings:0.8.1")
                 implementation("com.squareup.sqldelight:runtime:1.5.3")
                 implementation("io.ktor:ktor-client-core:1.6.7")
@@ -50,8 +52,8 @@ kotlin {
                 implementation(kotlin("test-annotations-common"))
             }
         }
-        val androidMain by getting{
-            dependencies{
+        val androidMain by getting {
+            dependencies {
                 implementation("com.squareup.sqldelight:android-driver:1.5.3")
                 implementation("io.ktor:ktor-client-android:1.6.7")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0")
@@ -66,12 +68,16 @@ kotlin {
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
+        val watchosSimulatorArm64Main by getting
+        val watchosMain by getting
         val iosMain by creating {
             dependencies {
                 implementation("com.squareup.sqldelight:native-driver:1.5.3")
                 implementation("io.ktor:ktor-client-ios:1.6.7")
             }
             dependsOn(commonMain)
+            watchosMain.dependsOn(this)
+            watchosSimulatorArm64Main.dependsOn(this)
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)

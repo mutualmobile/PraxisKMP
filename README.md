@@ -11,6 +11,12 @@ Minimal **Kotlin Multiplatform** project with SwiftUI, Jetpack Compose, Compose 
 
 ### Screenshots
 
+* watchOS (SwiftUI)
+
+<img src="art/art2.png" alt="drawing" style="width:200px;"/>
+
+* iOS (SwiftUI)
+
 <img src="art/art1.png" alt="drawing" style="width:200px;"/>
 
 ### Languages, libraries and tools used

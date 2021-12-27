@@ -1,0 +1,6 @@
+target 'watchApp WatchKit Extension' do
+   use_modular_headers!
+   pod 'shared', :path => '../shared'
+   pod 'KMPNativeCoroutinesCombine'
+   pod 'SDWebImageSwiftUI'
+end

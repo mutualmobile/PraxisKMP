@@ -11,7 +11,7 @@ Minimal **Kotlin Multiplatform** project with SwiftUI, Jetpack Compose, Compose 
 
 ### Architecture's layers & boundaries:
 
-<img src="art/art1.png" />
+<img src="art/art1.png" alt="drawing" style="width:200px;/>
 
 ### Languages, libraries and tools used
 

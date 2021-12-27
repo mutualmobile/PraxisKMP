@@ -1,13 +1,14 @@
 # PraxisKMM
 
 Minimal **Kotlin Multiplatform** project with SwiftUI, Jetpack Compose, Compose for Wear OS,. Currently running on
-* Android (Jetpack Compose)
-* Android App Widget
-* Wear OS (Compose for Wear OS)
-* iOS (SwiftUI)
-* iOS App Widget (SwiftUI)
-* watchOS (SwiftUI)
-* macOS (SwiftUI)
+
+* Android (Jetpack Compose) 🚧 In progress
+* Android App Widget 🚧 In progress
+* Wear OS (Compose for Wear OS) 🚧 In progress
+* iOS (SwiftUI) ✅ DONE
+* iOS App Widget (SwiftUI) 🚧 In progress
+* watchOS (SwiftUI) ✅ DONE
+* macOS (SwiftUI) ✅ DONE
 
 ### Screenshots
 

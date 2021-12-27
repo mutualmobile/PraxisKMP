@@ -14,6 +14,8 @@ kotlin {
     iosX64()
     iosArm64()
     watchos()
+    macosX64()
+    macosArm64()
     watchosSimulatorArm64()
     iosSimulatorArm64() //sure all ios dependencies support this target
 
@@ -68,8 +70,24 @@ kotlin {
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
+
         val watchosSimulatorArm64Main by getting
         val watchosMain by getting
+
+        val macosX64Main by getting{
+            dependencies {
+                implementation("io.ktor:ktor-client-ios:1.6.7")
+                implementation("com.squareup.sqldelight:native-driver-macosx64:1.5.3")
+            }
+        }
+        val macosArm64Main by getting{
+            dependencies {
+                implementation("io.ktor:ktor-client-ios:1.6.7")
+                implementation("com.squareup.sqldelight:native-driver-macosarm64:1.5.3")
+            }
+        }
+
+
         val iosMain by creating {
             dependencies {
                 implementation("com.squareup.sqldelight:native-driver:1.5.3")

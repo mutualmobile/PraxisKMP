@@ -19,6 +19,10 @@ Minimal **Kotlin Multiplatform** project with SwiftUI, Jetpack Compose, Compose 
 
 <img src="art/art1.png" alt="drawing" style="width:200px;"/>
 
+* macOS (SwiftUI)
+
+<img src="art/art3.png" alt="drawing" style="width:200px;"/>
+
 ### Languages, libraries and tools used
 
 * [Kotlin](https://kotlinlang.org/)

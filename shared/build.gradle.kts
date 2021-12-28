@@ -18,12 +18,14 @@ kotlin {
     macosArm64()
     watchosSimulatorArm64()
     iosSimulatorArm64() //sure all ios dependencies support this target
-
-    js(IR) {
-        useCommonJs()
-        browser()
+    js{
+        binaries.executable()
+        browser{
+            commonWebpackConfig {
+                cssSupport.enabled = true
+            }
+        }
     }
-
     cocoapods {
         summary = "Some description for the Shared Module"
         homepage = "Link to the Shared Module homepage"
@@ -75,6 +77,9 @@ kotlin {
         val jsMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-js:1.6.7")
+
+                implementation("com.squareup.sqldelight:sqljs-driver:1.5.3")
+
             }
         }
         val iosX64Main by getting

@@ -4,7 +4,7 @@ import com.squareup.sqldelight.db.SqlDriver
 import com.squareup.sqldelight.drivers.native.NativeSqliteDriver
 
 actual class DriverFactory {
-    actual suspend fun createDriver(): SqlDriver {
+    actual fun createDriver(): SqlDriver {
         return NativeSqliteDriver(BaseIoDB.Schema, "baseio.db")
     }
 }

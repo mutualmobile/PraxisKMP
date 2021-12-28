@@ -1,14 +1,18 @@
-CREATE TABLE Auth(
-uid TEXT NOT NULL PRIMARY KEY,
-jwt TEXT NOT NULL,
-refreshToken TEXT NOT NULL
+CREATE TABLE trending_repos(
+    uid TEXT NOT NULL PRIMARY KEY,
+    author TEXT,
+    avatar TEXT,
+    description TEXT,
+    language TEXT,
+    name TEXT,
+    url TEXT
 );
 
-insertAuth:
-INSERT OR REPLACE INTO Auth(uid, jwt, refreshToken) VALUES(?,?,?);
+insertRepo:
+INSERT OR REPLACE INTO trending_repos(uid,author,avatar,description,language,name,url) VALUES(?,?,?,?,?,?,?);
 
-selectAllAuth:
-SELECT * FROM Auth;
+selectAllRepos:
+SELECT * FROM trending_repos;
 
-deleteAllAuth:
-DELETE FROM Auth;
+deleteAllRepos:
+DELETE FROM trending_repos;

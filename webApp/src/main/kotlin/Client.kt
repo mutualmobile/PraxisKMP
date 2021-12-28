@@ -9,11 +9,8 @@ fun main() {
     window.onload = {
         initIosDependencies()
         val rootDiv = document.getElementById("root")
-        if (rootDiv != null) {
-            render(rootDiv) {
-                child(TrendingUI) {
-                }
-            }
+        render(rootDiv!!) {
+            child(TrendingUI)
         }
     }
 }

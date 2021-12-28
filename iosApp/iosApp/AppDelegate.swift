@@ -13,7 +13,7 @@ import shared
 
 
 let sharedComponent = IosComponent()
-
+let useCasesComponent = UseCasesComponent()
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

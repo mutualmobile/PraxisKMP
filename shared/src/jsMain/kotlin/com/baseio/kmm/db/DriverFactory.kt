@@ -6,6 +6,7 @@ import kotlinx.coroutines.await
 
 actual class DriverFactory {
     actual fun createDriver(): SqlDriver {
+        TODO("Fix this! Koin can not init suspended method, find another way of providing sql driver")
         return initSqlDriver(BaseIoDB.Schema).await()
     }
 }

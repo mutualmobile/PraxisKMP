@@ -9,6 +9,7 @@ import SwiftUI
 import shared
 
 let sharedComponent = IosComponent()
+let useCasesComponent = UseCasesComponent()
 
 @main
 struct watchAppApp: App {

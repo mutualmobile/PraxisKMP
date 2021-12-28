@@ -3,11 +3,12 @@ import kotlinx.html.InputType
 import kotlinx.html.js.onChangeFunction
 import org.w3c.dom.HTMLInputElement
 import kotlinx.coroutines.*
+import kotlinx.html.classes
+import kotlinx.html.style
 import react.*
 import react.dom.*
 
-external interface TrendingProps : Props {
-}
+external interface TrendingProps : Props
 
 val scope = MainScope()
 
@@ -24,10 +25,17 @@ val TrendingUI = fc<TrendingProps> {
     }
     div {
         for (repo in trendingRepos) {
-            p {
-                key = repo.url
-                +"${repo.name}: ${repo.author}"
+            img(src = repo.avatar, classes = "img") {
+                this.attrs.height = "100"
+                this.attrs.width = "100"
             }
+            div {
+                p {
+                    key = repo.url
+                    +"${repo.name}: ${repo.author}"
+                }
+            }
+
         }
     }
 

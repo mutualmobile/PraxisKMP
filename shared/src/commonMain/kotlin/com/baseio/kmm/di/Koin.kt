@@ -1,7 +1,12 @@
 package com.baseio.kmm.di
 
+import com.baseio.kmm.data.local.GithubTrendingLocal
+import com.baseio.kmm.data.local.GithubTrendingLocalImpl
 import com.baseio.kmm.data.network.GithubTrendingAPI
 import com.baseio.kmm.data.network.GithubTrendingAPIImpl
+import com.baseio.kmm.domain.usecases.trendingrepos.FetchTrendingReposUseCase
+import com.baseio.kmm.domain.usecases.trendingrepos.GetLocalReposUseCase
+import com.baseio.kmm.domain.usecases.trendingrepos.SaveTrendingReposUseCase
 import io.ktor.client.*
 import io.ktor.client.engine.*
 import io.ktor.client.features.json.*
@@ -12,20 +17,35 @@ import org.koin.core.context.startKoin
 import org.koin.core.module.Module
 import org.koin.dsl.module
 import org.koin.core.component.get
+import kotlin.math.sin
 
 expect fun platformModule(): Module
 
 fun initIosDependencies() = startKoin {
-    modules(commonModule, platformModule())
+    modules(commonModule, useCaseModule, platformModule())
 }
 
 val commonModule = module {
     single { httpClient(get()) }
+    single<GithubTrendingLocal> { GithubTrendingLocalImpl(get()) }
     single<GithubTrendingAPI> { GithubTrendingAPIImpl(get()) }
+}
+
+val useCaseModule = module {
+    single { FetchTrendingReposUseCase(get()) }
+    single { SaveTrendingReposUseCase(get()) }
+    single { GetLocalReposUseCase(get()) }
+}
+
+class UseCasesComponent : KoinComponent {
+    fun provideFetchTrendingReposUseCase(): FetchTrendingReposUseCase = get()
+    fun provideSaveTrendingReposUseCase(): SaveTrendingReposUseCase = get()
+    fun provideGetLocalReposUseCase(): GetLocalReposUseCase = get()
 }
 
 class IosComponent : KoinComponent {
     fun provideGithubTrendingAPI(): GithubTrendingAPI = get()
+    fun provideGithubTrendingLocal():GithubTrendingLocal = get()
 }
 
 private fun httpClient(httpClientEngine: HttpClientEngine) = HttpClient(httpClientEngine) {

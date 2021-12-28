@@ -1,40 +1,35 @@
+import com.baseio.kmm.domain.model.GithubReposItem
 import kotlinx.html.InputType
 import kotlinx.html.js.onChangeFunction
 import org.w3c.dom.HTMLInputElement
-import react.Props
-import react.RBuilder
-import react.RComponent
-import react.State
-import react.dom.attrs
-import react.dom.div
-import react.dom.input
+import kotlinx.coroutines.*
+import react.*
+import react.dom.*
 
-external interface WelcomeProps : Props {
-    var name: String
+external interface TrendingProps : Props {
 }
 
-data class WelcomeState(val name: String) : State
+val scope = MainScope()
 
-class Welcome(props: WelcomeProps) : RComponent<WelcomeProps, WelcomeState>(props) {
-
-    init {
-        state = WelcomeState(props.name)
+val TrendingUI = fc<TrendingProps> {
+    var trendingRepos: List<GithubReposItem> by useState(emptyList())
+    useEffectOnce {
+        scope.launch {
+            trendingRepos = sharedComponent.provideGithubTrendingAPI().getTrendingRepos("kotlin")
+        }
     }
 
-    override fun RBuilder.render() {
-        div {
-            +"Hello, ${state.name}"
-        }
-        input {
-            attrs {
-                type = InputType.text
-                value = state.name
-                onChangeFunction = { event ->
-                    setState(
-                        WelcomeState(name = (event.target as HTMLInputElement).value)
-                    )
-                }
+    h1 {
+        +"Trending Kotlin Repositories"
+    }
+    div {
+        for (repo in trendingRepos) {
+            p {
+                key = repo.url
+                +"${repo.name}: ${repo.author}"
             }
         }
     }
+
 }
+

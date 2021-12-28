@@ -11,10 +11,7 @@ fun main() {
         val rootDiv = document.getElementById("root")
         if (rootDiv != null) {
             render(rootDiv) {
-                child(Welcome::class) {
-                    attrs {
-                        name = "Kotlin/JS"
-                    }
+                child(TrendingUI) {
                 }
             }
         }

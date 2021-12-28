@@ -9,6 +9,7 @@ Minimal **Kotlin Multiplatform** project with SwiftUI, Jetpack Compose, Compose 
 * iOS App Widget (SwiftUI) 🚧 In progress
 * watchOS (SwiftUI) ✅ DONE
 * macOS (SwiftUI) ✅ DONE
+* Web (ReactJS) ✅ DONE
 
 ### Screenshots
 
@@ -23,6 +24,10 @@ Minimal **Kotlin Multiplatform** project with SwiftUI, Jetpack Compose, Compose 
 * macOS (SwiftUI)
 
 <img src="art/art3.png" alt="drawing" style="width:200px;"/>
+
+* Web (ReactJS)
+
+<img src="art/art4.png" alt="drawing" style="width:200px;"/>
 
 ### Languages, libraries and tools used
 

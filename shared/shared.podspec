@@ -11,6 +11,10 @@ Pod::Spec.new do |spec|
     spec.libraries                = "c++"
     spec.module_name              = "#{spec.name}_umbrella"
 
+    spec.ios.deployment_target = '14.1'
+
+                
+
     spec.pod_target_xcconfig = {
         'KOTLIN_PROJECT_PATH' => ':shared',
         'PRODUCT_MODULE_NAME' => 'shared',

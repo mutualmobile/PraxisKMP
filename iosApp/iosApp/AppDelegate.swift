@@ -12,14 +12,14 @@ import UIKit
 import shared
 
 
-let sharedComponent = IosComponent()
+let sharedComponent = SharedComponent()
 let useCasesComponent = UseCasesComponent()
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        KoinKt.doInitIosDependencies()
+        KoinKt.doInitSharedDependencies()
 
         return true
     }

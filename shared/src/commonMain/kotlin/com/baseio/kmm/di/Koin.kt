@@ -21,7 +21,7 @@ import kotlin.math.sin
 
 expect fun platformModule(): Module
 
-fun initIosDependencies() = startKoin {
+fun initSharedDependencies() = startKoin {
     modules(commonModule, useCaseModule, platformModule())
 }
 
@@ -43,9 +43,9 @@ class UseCasesComponent : KoinComponent {
     fun provideGetLocalReposUseCase(): GetLocalReposUseCase = get()
 }
 
-class IosComponent : KoinComponent {
+class SharedComponent : KoinComponent {
     fun provideGithubTrendingAPI(): GithubTrendingAPI = get()
-    fun provideGithubTrendingLocal():GithubTrendingLocal = get()
+    fun provideGithubTrendingLocal(): GithubTrendingLocal = get()
 }
 
 private fun httpClient(httpClientEngine: HttpClientEngine) = HttpClient(httpClientEngine) {

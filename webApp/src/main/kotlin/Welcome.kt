@@ -3,6 +3,7 @@ import kotlinx.html.InputType
 import kotlinx.html.js.onChangeFunction
 import org.w3c.dom.HTMLInputElement
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.html.classes
 import kotlinx.html.style
 import react.*
@@ -16,7 +17,23 @@ val TrendingUI = fc<TrendingProps> {
     var trendingRepos: List<GithubReposItem> by useState(emptyList())
     useEffectOnce {
         scope.launch {
-            trendingRepos = sharedComponent.provideGithubTrendingAPI().getTrendingRepos("kotlin")
+           withContext(Dispatchers.Default){
+               useCasesComponent.provideGetLocalReposUseCase().perform(null).collectLatest {
+                  withContext(Dispatchers.Main){
+                      trendingRepos = it
+                  }
+               }
+           }
+        }
+    }
+
+    useEffectOnce {
+        scope.launch {
+          withContext(Dispatchers.Default){
+              val trendingReposLocal =
+                  useCasesComponent.provideFetchTrendingReposUseCase().perform("kotlin")
+              useCasesComponent.provideSaveTrendingReposUseCase().perform(trendingReposLocal)
+          }
         }
     }
 

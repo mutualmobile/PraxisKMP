@@ -20,7 +20,7 @@ class GithubTrendingVM : ObservableObject{
     private var readUseCase = useCasesComponent.provideGetLocalReposUseCase()
     
     private var anyCancellable: AnyCancellable? = nil
-    private var localReadCancellable:AnyCancellable? = nil
+    private var localReadCancellable: AnyCancellable? = nil
     
     init() {
         readLocalTrendingRepos()

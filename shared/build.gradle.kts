@@ -18,7 +18,7 @@ kotlin {
     macosArm64()
     watchosSimulatorArm64()
     iosSimulatorArm64() //sure all ios dependencies support this target
-    js {
+    js(IR) {
         binaries.executable()
         browser {
             commonWebpackConfig {

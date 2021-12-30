@@ -7,4 +7,8 @@ actual class DriverFactory {
     actual fun createDriver(): SqlDriver {
         return NativeSqliteDriver(BaseIoDB.Schema, "baseio.db")
     }
+
+    actual suspend fun createDriverBlocking(): SqlDriver {
+        return NativeSqliteDriver(BaseIoDB.Schema, "baseio.db")
+    }
 }

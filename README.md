@@ -2,13 +2,15 @@
 
 Minimal **Kotlin Multiplatform** project with SwiftUI, Jetpack Compose, Compose for Wear OS,. Currently running on
 
-* Android (Jetpack Compose) 🚧 In progress
+* Android (Jetpack Compose) ✅ DONE
 * Android App Widget 🚧 In progress
 * Wear OS (Compose for Wear OS) 🚧 In progress
+  
 * iOS (SwiftUI) ✅ DONE
 * iOS App Widget (SwiftUI) 🚧 In progress
 * watchOS (SwiftUI) ✅ DONE
 * macOS (SwiftUI) ✅ DONE
+  
 * Web (ReactJS) ✅ DONE
 
 ### Screenshots

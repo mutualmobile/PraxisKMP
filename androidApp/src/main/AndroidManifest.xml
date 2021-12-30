@@ -1,18 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.baseio.kmm.android">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".PraxisApp"
         android:allowBackup="false"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:targetApi="donut"
+        tools:ignore="RtlEnabled">
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".TrendingReposUI"
+            android:exported="true"
+            android:label="@string/title_activity_trending_repos_ui"
+            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
-</manifest> 
+
+</manifest>

@@ -13,6 +13,10 @@ Minimal **Kotlin Multiplatform** project with SwiftUI, Jetpack Compose, Compose 
 
 ### Screenshots
 
+* Android (Jetpack Compose)
+
+<img src="art/art5.png" alt="drawing" style="width:200px;"/>
+
 * watchOS (SwiftUI)
 
 <img src="art/art2.png" alt="drawing" style="width:200px;"/>

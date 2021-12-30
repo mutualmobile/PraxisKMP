@@ -15,30 +15,48 @@ val scope = MainScope()
 
 val TrendingUI = fc<TrendingProps> {
     var trendingRepos: List<GithubReposItem> by useState(emptyList())
+    var exception: String by useState("")
     useEffectOnce {
         scope.launch {
-           withContext(Dispatchers.Default){
-               useCasesComponent.provideGetLocalReposUseCase().perform(null).collectLatest {
-                  withContext(Dispatchers.Main){
-                      trendingRepos = it
-                  }
-               }
-           }
+            withContext(Dispatchers.Default) {
+                delay(2500)
+                if(sharedComponent.provideGithubTrendingLocal().driver == null){
+                    exception = "driver is null"
+                }else{
+                    exception = "driver is not null"
+                }
+                useCasesComponent.provideGetLocalReposUseCase().perform(null).collectLatest {
+                    withContext(Dispatchers.Main) {
+                        trendingRepos = it
+                    }
+                }
+            }
         }
     }
 
     useEffectOnce {
         scope.launch {
-          withContext(Dispatchers.Default){
-              val trendingReposLocal =
-                  useCasesComponent.provideFetchTrendingReposUseCase().perform("kotlin")
-              useCasesComponent.provideSaveTrendingReposUseCase().perform(trendingReposLocal)
-          }
+            withContext(Dispatchers.Default) {
+                val trendingReposLocal =
+                    useCasesComponent.provideFetchTrendingReposUseCase().perform("kotlin")
+                if(sharedComponent.provideGithubTrendingLocal().driver == null){
+                    exception = "driver is null"
+                }else{
+                    exception = "driver is not null"
+                }
+                try {
+                    useCasesComponent.provideSaveTrendingReposUseCase().perform(trendingReposLocal)
+                } catch (ex: Exception) {
+                    ex.printStackTrace()
+                    exception = ex.message ?: ""
+                }
+            }
         }
     }
 
     h1 {
         +"Trending Kotlin Repositories"
+        +exception
     }
     div {
         for (repo in trendingRepos) {

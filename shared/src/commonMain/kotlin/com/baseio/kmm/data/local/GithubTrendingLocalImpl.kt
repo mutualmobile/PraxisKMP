@@ -9,7 +9,7 @@ import db.Trending_repos
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.asFlow
 
-class GithubTrendingLocalImpl(override var driver: SqlDriver?) : GithubTrendingLocal {
+class GithubTrendingLocalImpl(override var driver: SqlDriver? = null) : GithubTrendingLocal {
     private val database by lazy { BaseIoDB(driver!!) }
     private val dbQuery by lazy { database.baseIoDBQueries }
 

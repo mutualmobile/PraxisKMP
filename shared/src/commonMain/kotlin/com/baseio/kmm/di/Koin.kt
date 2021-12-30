@@ -25,9 +25,19 @@ fun initSharedDependencies() = startKoin {
     modules(commonModule, useCaseModule, platformModule())
 }
 
+fun initJSDependencies() = startKoin {
+    modules(jsModule, useCaseModule, platformModule())
+}
+
 val commonModule = module {
     single { httpClient(get()) }
     single<GithubTrendingLocal> { GithubTrendingLocalImpl(get()) }
+    single<GithubTrendingAPI> { GithubTrendingAPIImpl(get()) }
+}
+
+val jsModule = module {
+    single { httpClient(get()) }
+    single<GithubTrendingLocal> { GithubTrendingLocalImpl() }
     single<GithubTrendingAPI> { GithubTrendingAPIImpl(get()) }
 }
 

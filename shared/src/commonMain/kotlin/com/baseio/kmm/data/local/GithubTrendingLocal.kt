@@ -9,5 +9,4 @@ interface GithubTrendingLocal {
     var driver: SqlDriver?
     fun saveRepos(input: List<GithubReposItem>)
     fun getAll(): Flow<List<Trending_repos>>
-
 }

@@ -23,7 +23,7 @@ dependencies {
     testImplementation(kotlin("test"))
     implementation(project(":shared"))
     implementation(kotlin("stdlib-js"))
-    implementation(npm("copy-webpack-plugin", "5.1.1"))
+    implementation(npm("copy-webpack-plugin", "9.0.0"))
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.0")
     implementation("org.jetbrains.kotlinx:kotlinx-html-js:0.7.3")
@@ -32,9 +32,10 @@ dependencies {
     implementation("org.jetbrains.kotlin-wrappers:kotlin-react-dom:17.0.2-pre.284-kotlin-1.6.10")
 }
 
-// workaround for https://youtrack.jetbrains.com/issue/KT-48273
+// a temporary workaround for a bug in jsRun invocation - see https://youtrack.jetbrains.com/issue/KT-48273
 afterEvaluate {
     rootProject.extensions.configure<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension> {
         versions.webpackDevServer.version = "4.0.0"
+        versions.webpackCli.version = "4.9.0"
     }
 }

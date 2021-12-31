@@ -18,12 +18,6 @@ class TrendingReposUI : ComponentActivity() {
         // A surface container using the 'background' color from the theme
         Surface(color = MaterialTheme.colors.background) {
           Scaffold(
-            topBar = {
-              TopAppBar(
-                title = { Text("Trending Kotlin Repositories") },
-                backgroundColor = materialBlue700
-              )
-            },
             content = {
                       TrendingReposListScreen(viewModel)
             },
@@ -34,7 +28,3 @@ class TrendingReposUI : ComponentActivity() {
   }
 }
 
-@Composable
-fun Greeting(name: String) {
-  Text(text = "Hello $name!")
-}

@@ -5,8 +5,6 @@ import com.baseio.kmm.di.initJSDependencies
 import react.dom.render
 import kotlinx.browser.document
 import kotlinx.browser.window
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.launch
 
 val sharedComponent = SharedComponent()
 val useCasesComponent = UseCasesComponent()

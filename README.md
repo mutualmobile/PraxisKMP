@@ -3,13 +3,19 @@
 Minimal **Kotlin Multiplatform** project with SwiftUI, Jetpack Compose, Compose for Wear OS,. Currently running on
 
 * Android (Jetpack Compose) ✅ DONE
-* Android App Widget 🚧 In progress
+* Android App Widget 🚧 TODO
 * Wear OS (Compose for Wear OS) ✅ DONE
 * iOS (SwiftUI) ✅ DONE
-* iOS App Widget (SwiftUI) 🚧 In progress
+* iOS App Widget (SwiftUI) 🚧 TODO
 * watchOS (SwiftUI) ✅ DONE
 * macOS (SwiftUI) ✅ DONE
 * Web (ReactJS) ✅ DONE
+
+### TODOs
+
+1. Koin does not allow to return dependencies with await() which affects providing SqlDriver on JSPlatform. 
+   Figure out a way for proper DI for SQlDriver.
+   see issue here: https://github.com/InsertKoinIO/koin/issues/388
 
 ### Screenshots
 

@@ -1,11 +1,6 @@
 import com.baseio.kmm.domain.model.GithubReposItem
-import kotlinx.html.InputType
-import kotlinx.html.js.onChangeFunction
-import org.w3c.dom.HTMLInputElement
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.html.classes
-import kotlinx.html.style
 import react.*
 import react.dom.*
 
@@ -19,7 +14,7 @@ val TrendingUI = fc<TrendingProps> {
   useEffectOnce {
     scope.launch {
       withContext(Dispatchers.Default) {
-        delay(1500)
+        setupDriver()
         useCasesComponent.provideGetLocalReposUseCase().perform(null).collectLatest {
           withContext(Dispatchers.Main) {
             trendingRepos = it
@@ -35,7 +30,7 @@ val TrendingUI = fc<TrendingProps> {
         val trendingReposLocal =
           useCasesComponent.provideFetchTrendingReposUseCase().perform("kotlin")
         try {
-          delay(1500)
+          setupDriver()
           useCasesComponent.provideSaveTrendingReposUseCase().perform(trendingReposLocal)
         } catch (ex: Exception) {
           ex.printStackTrace()
@@ -49,7 +44,7 @@ val TrendingUI = fc<TrendingProps> {
     +"Trending Kotlin Repositories"
     +exception
   }
-  if(exception.isNotEmpty()){
+  if (exception.isNotEmpty()) {
     h1 {
       +"Error:"
       +exception
@@ -66,6 +61,15 @@ val TrendingUI = fc<TrendingProps> {
         p {
           key = repo.url
           +"${repo.name}: ${repo.author}"
+        }
+        a {
+          attrs {
+            href = repo.url.toString()
+            target = repo.url.toString()
+          }
+          p{
+            +repo.url.toString()
+          }
         }
       }
 

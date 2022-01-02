@@ -14,9 +14,6 @@ val useCasesComponent = UseCasesComponent()
 fun main() {
   initJSDependencies()
   window.onload = { _ ->
-    MainScope().launch {
-      setupDriver()
-    }
     val rootDiv = document.getElementById("root")
     render(rootDiv!!) {
       child(TrendingUI)
@@ -25,6 +22,13 @@ fun main() {
 }
 
 suspend fun setupDriver() {
+  sharedComponent.provideGithubTrendingLocal().driver?.let {} ?: run {
+    setupDriverInternal()
+  }
+
+}
+
+private suspend fun setupDriverInternal() {
   try {
     val driver = DriverFactory().createDriverBlocking()
     val trendingLocal = sharedComponent.provideGithubTrendingLocal()

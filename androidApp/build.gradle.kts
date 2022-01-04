@@ -15,6 +15,7 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         getByName("release") {
@@ -55,4 +56,13 @@ dependencies {
     implementation("androidx.activity:activity-compose:1.4.0")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.1.0-rc01")
     debugImplementation("androidx.compose.ui:ui-tooling:1.1.0-rc01")
+
+    implementation("io.ktor:ktor-client-mock:1.6.7")
+    implementation("io.ktor:ktor-client-serialization:1.6.7")
+    implementation("io.ktor:ktor-client-gson:1.6.7")
+    implementation("io.insert-koin:koin-androidx-compose:3.1.4")
+    androidTestImplementation("io.insert-koin:koin-test:3.1.4")
+    androidTestImplementation("io.insert-koin:koin-test-junit4:3.1.4")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:1.1.0-rc01")
+    androidTestImplementation("com.squareup.sqldelight:sqlite-driver:1.5.3")
 }

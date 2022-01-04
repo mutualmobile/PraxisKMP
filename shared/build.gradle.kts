@@ -46,6 +46,7 @@ kotlin {
                 implementation("io.ktor:ktor-client-core:1.6.7")
                 implementation("io.ktor:ktor-client-json:1.6.7")
                 implementation("io.ktor:ktor-client-logging:1.6.7")
+                implementation("ch.qos.logback:logback-classic:1.2.10")
                 implementation("io.ktor:ktor-client-serialization:1.6.7")
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.3.1")
 

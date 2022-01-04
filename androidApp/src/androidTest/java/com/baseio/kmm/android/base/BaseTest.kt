@@ -6,6 +6,7 @@ import com.baseio.kmm.data.local.GithubTrendingLocal
 import com.baseio.kmm.data.local.GithubTrendingLocalImpl
 import com.baseio.kmm.data.network.GithubTrendingAPI
 import com.baseio.kmm.data.network.GithubTrendingAPIImpl
+import com.baseio.kmm.db.DriverFactory
 import com.baseio.kmm.di.commonModule
 import com.baseio.kmm.di.jsModule
 import com.baseio.kmm.di.platformModule
@@ -25,6 +26,7 @@ import io.ktor.http.headersOf
 import io.ktor.utils.io.ByteReadChannel
 import org.junit.Before
 import org.junit.runner.RunWith
+import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.unloadKoinModules
 import org.koin.dsl.module
@@ -66,7 +68,11 @@ abstract class BaseTest : AutoCloseKoinTest() {
         )
         loadKoinModules(
             module {
-                single<GithubTrendingLocal> { GithubTrendingLocalImpl() }
+                single<GithubTrendingLocal> {
+                    GithubTrendingLocalImpl(
+                        DriverFactory(androidContext()).createInMemoryDriver()
+                    )
+                }
                 single { FetchTrendingReposUseCase(api) }
                 single { SaveTrendingReposUseCase(get()) }
                 single { GetLocalReposUseCase(get()) }

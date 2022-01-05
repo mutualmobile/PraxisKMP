@@ -1,7 +1,11 @@
 package com.baseio.wearos
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
@@ -9,10 +13,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
+
+object TrendingReposListScreen {
+    const val RepoColumn = "TrendingReposListColumn"
+}
 
 @Composable
 fun TrendingReposListScreen(viewModel: TrendingReposVM) {
@@ -32,7 +41,8 @@ fun TrendingReposListScreen(viewModel: TrendingReposVM) {
 
         LazyColumn(
             modifier = Modifier
-                .padding(horizontal = 4.dp),
+                .padding(horizontal = 4.dp)
+                .testTag(TrendingReposListScreen.RepoColumn),
             contentPadding = PaddingValues(
                 start = 8.dp,
                 top = 8.dp,
@@ -58,8 +68,6 @@ fun TrendingReposListScreen(viewModel: TrendingReposVM) {
                     }
                 }
             }
-
         }
-
     }
 }

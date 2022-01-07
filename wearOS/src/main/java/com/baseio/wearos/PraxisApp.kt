@@ -3,7 +3,6 @@ package com.baseio.wearos
 import android.app.Application
 import com.baseio.kmm.di.SharedComponent
 import com.baseio.kmm.di.UseCasesComponent
-import com.baseio.kmm.di.jsModule
 import com.baseio.kmm.di.platformModule
 import com.baseio.kmm.di.useCaseModule
 import org.koin.android.ext.koin.androidContext
@@ -17,7 +16,7 @@ class PraxisApp : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@PraxisApp)
-            modules(jsModule, useCaseModule, platformModule())
+            modules(platformModule, useCaseModule, platformModule())
         }
     }
 }

@@ -62,6 +62,11 @@ kotlin {
                 implementation("com.russhwolf:multiplatform-settings-test:0.8.1")
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
+                implementation("org.jetbrains.kotlin:kotlin-test-common:1.6.10")
+                implementation("org.jetbrains.kotlin:kotlin-test-annotations-common:1.6.10")
+                implementation("io.insert-koin:koin-test:3.1.4")
+                implementation("io.ktor:ktor-client-mock:1.6.7")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0")
             }
         }
         val androidMain by getting {
@@ -75,6 +80,7 @@ kotlin {
             dependencies {
                 implementation(kotlin("test-junit"))
                 implementation("junit:junit:4.13.2")
+                implementation("io.insert-koin:koin-android:3.1.4")
             }
         }
         val jsMain by getting {
@@ -82,7 +88,6 @@ kotlin {
                 implementation("io.ktor:ktor-client-js:1.6.7")
 
                 implementation("com.squareup.sqldelight:sqljs-driver:1.5.3")
-
             }
         }
         val iosX64Main by getting

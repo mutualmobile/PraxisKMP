@@ -8,7 +8,6 @@ import com.baseio.kmm.data.network.GithubTrendingAPI
 import com.baseio.kmm.data.network.GithubTrendingAPIImpl
 import com.baseio.kmm.db.DriverFactory
 import com.baseio.kmm.di.commonModule
-import com.baseio.kmm.di.jsModule
 import com.baseio.kmm.di.platformModule
 import com.baseio.kmm.di.useCaseModule
 import com.baseio.kmm.domain.usecases.trendingrepos.FetchTrendingReposUseCase
@@ -59,7 +58,7 @@ abstract class BaseTest : AutoCloseKoinTest() {
 
         unloadKoinModules(
             listOf(
-                jsModule,
+                platformModule,
                 platformModule(),
                 commonModule,
                 useCaseModule,

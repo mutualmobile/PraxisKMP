@@ -8,10 +8,12 @@ import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.action.actionStartActivity
 import androidx.glance.action.clickable
+import androidx.glance.appwidget.action.actionRunCallback
 import androidx.glance.appwidget.cornerRadius
 import androidx.glance.appwidget.lazy.LazyColumn
 import androidx.glance.background
 import androidx.glance.layout.Alignment
+import androidx.glance.layout.Box
 import androidx.glance.layout.Column
 import androidx.glance.layout.Row
 import androidx.glance.layout.Spacer
@@ -22,7 +24,8 @@ import androidx.glance.layout.size
 import androidx.glance.text.Text
 import com.baseio.kmm.android.R
 import com.baseio.kmm.android.TrendingReposUI
-import com.baseio.kmm.android.ui.appWidget.TrendingReposWidget
+import com.baseio.kmm.android.ui.appWidget.TrendingReposWidgetCallbackApi
+import com.baseio.kmm.android.ui.appWidget.WidgetConstants
 import com.baseio.kmm.android.ui.theme.WidgetBodyStyle
 import com.baseio.kmm.android.ui.theme.WidgetTitleStyle
 import com.baseio.kmm.domain.model.GithubReposItem
@@ -30,10 +33,23 @@ import com.baseio.kmm.domain.model.GithubReposItem
 @Composable
 fun WidgetSuccessScreen(dataToDisplayOnScreen: List<GithubReposItem>) {
     LazyColumn(
-        modifier = GlanceModifier.fillMaxSize().padding(horizontal = TrendingReposWidget.WidgetItemRadius.dp)
+        modifier = GlanceModifier
+            .fillMaxSize()
+            .padding(horizontal = WidgetConstants.WidgetItemRadius.dp)
     ) {
         item {
-            Spacer(modifier = GlanceModifier.padding(TrendingReposWidget.SpacerPadding.dp))
+            Box(
+                modifier = GlanceModifier.fillMaxWidth(),
+                contentAlignment = Alignment.CenterEnd
+            ) {
+                Image(
+                    provider = ImageProvider(R.drawable.ic_refresh),
+                    contentDescription = null,
+                    modifier = GlanceModifier
+                        .clickable(actionRunCallback<TrendingReposWidgetCallbackApi>())
+                        .padding(WidgetConstants.SpacerPadding.dp)
+                )
+            }
         }
         dataToDisplayOnScreen.forEach { githubReposItem ->
             item {
@@ -41,9 +57,9 @@ fun WidgetSuccessScreen(dataToDisplayOnScreen: List<GithubReposItem>) {
                     Row(
                         modifier = GlanceModifier
                             .fillMaxWidth()
-                            .padding(TrendingReposWidget.RowPadding.dp)
+                            .padding(WidgetConstants.RowPadding.dp)
                             .background(MaterialTheme.colorScheme.surface)
-                            .cornerRadius(TrendingReposWidget.WidgetItemRadius.dp)
+                            .cornerRadius(WidgetConstants.WidgetItemRadius.dp)
                             .clickable(
                                 onClick = actionStartActivity<TrendingReposUI>()
                             ),
@@ -52,20 +68,22 @@ fun WidgetSuccessScreen(dataToDisplayOnScreen: List<GithubReposItem>) {
                         Image(
                             provider = ImageProvider(R.drawable.widget_placeholder_avatar),
                             contentDescription = null,
-                            modifier = GlanceModifier.size(TrendingReposWidget.ImageSize.dp).cornerRadius(TrendingReposWidget.ImageSize.dp)
+                            modifier = GlanceModifier
+                                .size(WidgetConstants.ImageSize.dp)
+                                .cornerRadius(WidgetConstants.ImageSize.dp)
                         )
-                        Spacer(modifier = GlanceModifier.padding(TrendingReposWidget.SpacerPadding.dp))
+                        Spacer(modifier = GlanceModifier.padding(WidgetConstants.SpacerPadding.dp))
                         Column {
                             Text(githubReposItem.name.orEmpty(), style = WidgetTitleStyle, maxLines = 1)
                             Text(githubReposItem.url.orEmpty(), style = WidgetBodyStyle, maxLines = 1)
                         }
                     }
-                    Spacer(modifier = GlanceModifier.padding((TrendingReposWidget.SpacerPadding / 2).dp))
+                    Spacer(modifier = GlanceModifier.padding((WidgetConstants.SpacerPadding / 2).dp))
                 }
             }
         }
         item {
-            Spacer(modifier = GlanceModifier.padding((TrendingReposWidget.SpacerPadding / 2).dp))
+            Spacer(modifier = GlanceModifier.padding((WidgetConstants.SpacerPadding / 2).dp))
         }
     }
 }

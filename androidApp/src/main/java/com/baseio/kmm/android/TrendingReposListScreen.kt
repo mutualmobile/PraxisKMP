@@ -10,10 +10,15 @@ import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
+
+object TrendingReposListScreen {
+  const val RepoColumn = "TrendingReposListColumn"
+}
 
 @Composable
 fun TrendingReposListScreen(viewModel: TrendingReposVM) {
@@ -26,7 +31,7 @@ fun TrendingReposListScreen(viewModel: TrendingReposVM) {
 
     Text(text = uiState.message, modifier = Modifier.padding(4.dp))
 
-    LazyColumn {
+    LazyColumn(modifier = Modifier.testTag(TrendingReposListScreen.RepoColumn)) {
       uiState.dataToDisplayOnScreen.forEach {
         item {
           Row(modifier = Modifier.padding(4.dp)) {

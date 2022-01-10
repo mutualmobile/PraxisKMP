@@ -7,17 +7,19 @@ import com.baseio.kmm.data.network.GithubTrendingAPIImpl
 import com.baseio.kmm.domain.usecases.trendingrepos.FetchTrendingReposUseCase
 import com.baseio.kmm.domain.usecases.trendingrepos.GetLocalReposUseCase
 import com.baseio.kmm.domain.usecases.trendingrepos.SaveTrendingReposUseCase
-import io.ktor.client.*
-import io.ktor.client.engine.*
-import io.ktor.client.features.json.*
-import io.ktor.client.features.json.serializer.*
-import io.ktor.client.features.logging.*
+import io.ktor.client.HttpClient
+import io.ktor.client.engine.HttpClientEngine
+import io.ktor.client.features.json.JsonFeature
+import io.ktor.client.features.json.serializer.KotlinxSerializer
+import io.ktor.client.features.logging.DEFAULT
+import io.ktor.client.features.logging.LogLevel
+import io.ktor.client.features.logging.Logger
+import io.ktor.client.features.logging.Logging
 import org.koin.core.component.KoinComponent
+import org.koin.core.component.get
 import org.koin.core.context.startKoin
 import org.koin.core.module.Module
 import org.koin.dsl.module
-import org.koin.core.component.get
-import kotlin.math.sin
 
 expect fun platformModule(): Module
 
@@ -26,7 +28,7 @@ fun initSharedDependencies() = startKoin {
 }
 
 fun initJSDependencies() = startKoin {
-    modules(jsModule, useCaseModule, platformModule())
+    modules(platformModule, useCaseModule, platformModule())
 }
 
 val commonModule = module {
@@ -35,7 +37,7 @@ val commonModule = module {
     single<GithubTrendingAPI> { GithubTrendingAPIImpl(get()) }
 }
 
-val jsModule = module {
+val platformModule = module {
     single { httpClient(get()) }
     single<GithubTrendingLocal> { GithubTrendingLocalImpl() }
     single<GithubTrendingAPI> { GithubTrendingAPIImpl(get()) }

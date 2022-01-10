@@ -65,4 +65,7 @@ dependencies {
     androidTestImplementation("io.insert-koin:koin-test-junit4:3.1.4")
     debugImplementation("androidx.compose.ui:ui-test-manifest:1.1.0-rc01")
     androidTestImplementation("com.squareup.sqldelight:sqlite-driver:1.5.3")
+
+    implementation("androidx.glance:glance:1.0.0-alpha01")
+    implementation("androidx.glance:glance-appwidget:1.0.0-alpha01")
 }

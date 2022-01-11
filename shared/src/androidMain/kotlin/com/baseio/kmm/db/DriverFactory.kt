@@ -12,8 +12,4 @@ actual class DriverFactory(private val context: Context) {
     actual suspend fun createDriverBlocking(): SqlDriver {
         return AndroidSqliteDriver(BaseIoDB.Schema, context, "baseio.db")
     }
-
-    fun createInMemoryDriver(): SqlDriver {
-        return AndroidSqliteDriver(BaseIoDB.Schema, context, null)
-    }
 }

@@ -4,14 +4,15 @@ plugins {
     id("kotlin-android")
 }
 
+
 android {
     compileSdk = 31
     defaultConfig {
         applicationId = "com.baseio.wearos"
-        minSdk = 30
-        targetSdk = 31
-        versionCode = 1
-        versionName = "1.0"
+        minSdk =  30
+        targetSdk =  31
+        versionCode =  1
+        versionName  = "1.0"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -23,7 +24,7 @@ android {
         }
     }
     buildFeatures {
-        viewBinding = true
+        viewBinding =  true
         compose = true
     }
     compileOptions {
@@ -60,14 +61,4 @@ dependencies {
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("androidx.recyclerview:recyclerview:1.2.1")
     implementation("androidx.wear:wear:1.2.0")
-
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.1.0-rc01")
-    implementation("io.ktor:ktor-client-mock:1.6.7")
-    implementation("io.ktor:ktor-client-serialization:1.6.7")
-    implementation("io.ktor:ktor-client-gson:1.6.7")
-    implementation("io.insert-koin:koin-androidx-compose:3.1.4")
-    androidTestImplementation("io.insert-koin:koin-test:3.1.4")
-    androidTestImplementation("io.insert-koin:koin-test-junit4:3.1.4")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.1.0-rc01")
-    androidTestImplementation("com.squareup.sqldelight:sqlite-driver:1.5.3")
 }

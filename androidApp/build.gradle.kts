@@ -70,4 +70,7 @@ dependencies {
     implementation("androidx.glance:glance-appwidget:1.0.0-alpha01")
 
     implementation("androidx.compose.material3:material3:1.0.0-alpha02")
+
+    implementation("com.google.accompanist:accompanist-insets:0.22.0-rc")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.22.0-rc")
 }

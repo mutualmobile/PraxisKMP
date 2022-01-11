@@ -20,7 +20,6 @@ import androidx.glance.layout.Spacer
 import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.fillMaxWidth
 import androidx.glance.layout.padding
-import androidx.glance.layout.size
 import androidx.glance.text.Text
 import com.baseio.kmm.android.R
 import com.baseio.kmm.android.TrendingReposUI
@@ -65,14 +64,6 @@ fun WidgetSuccessScreen(dataToDisplayOnScreen: List<GithubReposItem>) {
                             ),
                         verticalAlignment = Alignment.Vertical.CenterVertically
                     ) {
-                        Image(
-                            provider = ImageProvider(R.drawable.widget_placeholder_avatar),
-                            contentDescription = null,
-                            modifier = GlanceModifier
-                                .size(WidgetConstants.ImageSize.dp)
-                                .cornerRadius(WidgetConstants.ImageSize.dp)
-                        )
-                        Spacer(modifier = GlanceModifier.padding(WidgetConstants.SpacerPadding.dp))
                         Column {
                             Text(githubReposItem.name.orEmpty(), style = WidgetTitleStyle, maxLines = 1)
                             Text(githubReposItem.url.orEmpty(), style = WidgetBodyStyle, maxLines = 1)

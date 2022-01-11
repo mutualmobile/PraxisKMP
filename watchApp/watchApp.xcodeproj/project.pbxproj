@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		7273AEA59D36F70FFE3BC386 /* libPods-watchApp WatchKit Extension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36215ED054052F198A85B67E /* libPods-watchApp WatchKit Extension.a */; };
+		894B7199278D59D3003EA106 /* GithubTrendingUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894B7198278D59D3003EA106 /* GithubTrendingUI.swift */; };
 		89D841C22779EFDD00D08BC0 /* watchApp WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 89D841C12779EFDD00D08BC0 /* watchApp WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		89D841C72779EFDE00D08BC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89D841C62779EFDE00D08BC0 /* Assets.xcassets */; };
 		89D841CD2779EFDE00D08BC0 /* watchApp WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 89D841CC2779EFDE00D08BC0 /* watchApp WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		89D841D22779EFDE00D08BC0 /* watchAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D841D12779EFDE00D08BC0 /* watchAppApp.swift */; };
-		89D841D42779EFDE00D08BC0 /* GithubTrendingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D841D32779EFDE00D08BC0 /* GithubTrendingScreen.swift */; };
 		89D841D62779EFDE00D08BC0 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D841D52779EFDE00D08BC0 /* NotificationController.swift */; };
 		89D841D82779EFDE00D08BC0 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D841D72779EFDE00D08BC0 /* NotificationView.swift */; };
 		89D841DA2779EFDE00D08BC0 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D841D92779EFDE00D08BC0 /* ComplicationController.swift */; };
@@ -85,12 +85,12 @@
 		09A62315B18CAD64F2E8E94A /* Pods-watchApp WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-watchApp WatchKit Extension.debug.xcconfig"; path = "Target Support Files/Pods-watchApp WatchKit Extension/Pods-watchApp WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		36215ED054052F198A85B67E /* libPods-watchApp WatchKit Extension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-watchApp WatchKit Extension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D5970D796E89A4FC9489EEA /* Pods-watchApp WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-watchApp WatchKit Extension.release.xcconfig"; path = "Target Support Files/Pods-watchApp WatchKit Extension/Pods-watchApp WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
+		894B7198278D59D3003EA106 /* GithubTrendingUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GithubTrendingUI.swift; path = ../../../iosApp/iosApp/githubtrending/GithubTrendingUI.swift; sourceTree = "<group>"; };
 		89D841BD2779EFDD00D08BC0 /* watchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89D841C12779EFDD00D08BC0 /* watchApp WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "watchApp WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89D841C62779EFDE00D08BC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89D841CC2779EFDE00D08BC0 /* watchApp WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "watchApp WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89D841D12779EFDE00D08BC0 /* watchAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watchAppApp.swift; sourceTree = "<group>"; };
-		89D841D32779EFDE00D08BC0 /* GithubTrendingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubTrendingScreen.swift; sourceTree = "<group>"; };
 		89D841D52779EFDE00D08BC0 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		89D841D72779EFDE00D08BC0 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		89D841D92779EFDE00D08BC0 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 		89D8420D2779F0D900D08BC0 /* githubtrending */ = {
 			isa = PBXGroup;
 			children = (
-				89D841D32779EFDE00D08BC0 /* GithubTrendingScreen.swift */,
+				894B7198278D59D3003EA106 /* GithubTrendingUI.swift */,
 				89D8420B2779F0D200D08BC0 /* GithubTrendingVM.swift */,
 				89D8420E2779F10200D08BC0 /* UiRepo.swift */,
 			);
@@ -449,10 +449,10 @@
 			files = (
 				89D8420C2779F0D200D08BC0 /* GithubTrendingVM.swift in Sources */,
 				89D841D62779EFDE00D08BC0 /* NotificationController.swift in Sources */,
-				89D841D42779EFDE00D08BC0 /* GithubTrendingScreen.swift in Sources */,
 				89D841DA2779EFDE00D08BC0 /* ComplicationController.swift in Sources */,
 				89D841D22779EFDE00D08BC0 /* watchAppApp.swift in Sources */,
 				89D841D82779EFDE00D08BC0 /* NotificationView.swift in Sources */,
+				894B7199278D59D3003EA106 /* GithubTrendingUI.swift in Sources */,
 				89D8420F2779F10200D08BC0 /* UiRepo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

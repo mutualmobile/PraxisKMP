@@ -12,7 +12,7 @@ insertRepo:
 INSERT OR REPLACE INTO trending_repos(uid,author,avatar,description,language,name,url) VALUES(?,?,?,?,?,?,?);
 
 selectAllRepos:
-SELECT * FROM trending_repos;
+SELECT * FROM trending_repos ORDER BY name ASC;
 
 deleteAllRepos:
 DELETE FROM trending_repos;

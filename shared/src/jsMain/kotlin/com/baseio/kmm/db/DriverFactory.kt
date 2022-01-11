@@ -13,7 +13,4 @@ actual class DriverFactory {
         return initSqlDriver(BaseIoDB.Schema).await()
     }
 
-    suspend fun createInMemoryDriver(): SqlDriver {
-        return initSqlDriver(null).await()
-    }
 }

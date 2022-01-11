@@ -17,7 +17,6 @@ import org.koin.core.context.startKoin
 import org.koin.core.module.Module
 import org.koin.dsl.module
 import org.koin.core.component.get
-import kotlin.math.sin
 
 expect fun platformModule(): Module
 

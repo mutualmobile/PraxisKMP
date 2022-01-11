@@ -25,6 +25,7 @@ class GithubTrendingLocalImpl(override var driver: SqlDriver? = null) : GithubTr
 
     override fun saveRepos(input: List<GithubReposItem>) {
         dbQuery.transaction {
+            dbQuery.deleteAllRepos()
             input.forEach {
                 dbQuery.insertRepo(
                     uid = it.author + it.url,

@@ -1,4 +1,5 @@
 import com.baseio.kmm.domain.model.GithubReposItem
+import com.baseio.kmm.features.trending.TrendingDataModel
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collectLatest
 import react.*
@@ -6,49 +7,48 @@ import react.dom.*
 
 external interface TrendingProps : Props
 
-val scope = MainScope()
-
 val TrendingUI = fc<TrendingProps> {
   var trendingRepos: List<GithubReposItem> by useState(emptyList())
-  var exception: String by useState("")
-  useEffectOnce {
-    scope.launch {
-      withContext(Dispatchers.Default) {
-        setupDriver()
-        useCasesComponent.provideGetLocalReposUseCase().perform(null).collectLatest {
-          withContext(Dispatchers.Main) {
-            trendingRepos = it
-          }
-        }
+  var message: String by useState("")
+  var state by useState<TrendingDataModel.UiState>()
+
+  val dataModel = TrendingDataModel(onDataState = { stateNew ->
+    state = stateNew
+    when (stateNew) {
+      is TrendingDataModel.LoadingState -> {
+        message = "Loading..."
+      }
+      is TrendingDataModel.SuccessState -> {
+        trendingRepos = stateNew.trendingList
+        message = "Found repos..."
+      }
+      TrendingDataModel.Complete -> {
+        message = "Completed loading!"
+      }
+      TrendingDataModel.EmptyState -> {
+        message = "Emty state"
+      }
+      is TrendingDataModel.ErrorState -> {
+        message = stateNew.throwable.message ?: "Error"
       }
     }
-  }
+  })
 
   useEffectOnce {
-    scope.launch {
-      withContext(Dispatchers.Default) {
-        val trendingReposLocal =
-          useCasesComponent.provideFetchTrendingReposUseCase().perform("kotlin")
-        try {
-          setupDriver()
-          useCasesComponent.provideSaveTrendingReposUseCase().perform(trendingReposLocal)
-        } catch (ex: Exception) {
-          ex.printStackTrace()
-          exception = ex.message ?: ""
-        }
-      }
+    MainScope().launch {
+      setupDriver()
+      message = "Driver created";
+      dataModel.activate()
+      message = "DataModel activated";
     }
   }
 
   h1 {
     +"Trending Kotlin Repositories"
-    +exception
   }
-  if (exception.isNotEmpty()) {
-    h1 {
-      +"Error:"
-      +exception
-    }
+  h1 {
+    +"Status :"
+    +message
   }
 
   div {
@@ -67,7 +67,7 @@ val TrendingUI = fc<TrendingProps> {
             href = repo.url.toString()
             target = repo.url.toString()
           }
-          p{
+          p {
             +repo.url.toString()
           }
         }

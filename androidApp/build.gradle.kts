@@ -15,6 +15,7 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         getByName("release") {
@@ -55,4 +56,8 @@ dependencies {
     implementation("androidx.activity:activity-compose:1.4.0")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.1.0-rc01")
     debugImplementation("androidx.compose.ui:ui-tooling:1.1.0-rc01")
+
+    implementation("androidx.compose.material3:material3:1.0.0-alpha02")
+    implementation("com.google.accompanist:accompanist-insets:0.22.0-rc")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.22.0-rc")
 }

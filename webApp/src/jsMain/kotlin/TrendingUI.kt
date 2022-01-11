@@ -17,7 +17,7 @@ external interface TrendingProps : Props
 val TrendingUI = fc<TrendingProps> {
   var trendingRepos: List<GithubReposItem> by useState(emptyList())
   var message: String by useState("")
-  var state by useState<TrendingDataModel.UiState>()
+  var state by useState<TrendingDataModel.DataState>()
   var search by useState("")
 
   val dataModel = TrendingDataModel(onDataState = { stateNew ->

@@ -1,3 +1,4 @@
 <resources>
     <string name="title_activity_trending_repos_ui">TrendingReposUI</string>
+    <string name="app_widget_description">Trending Github Repos</string>
 </resources>

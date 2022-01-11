@@ -57,20 +57,7 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.1.0-rc01")
     debugImplementation("androidx.compose.ui:ui-tooling:1.1.0-rc01")
 
-    implementation("io.ktor:ktor-client-mock:1.6.7")
-    implementation("io.ktor:ktor-client-serialization:1.6.7")
-    implementation("io.ktor:ktor-client-gson:1.6.7")
-    implementation("io.insert-koin:koin-androidx-compose:3.1.4")
-    androidTestImplementation("io.insert-koin:koin-test:3.1.4")
-    androidTestImplementation("io.insert-koin:koin-test-junit4:3.1.4")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.1.0-rc01")
-    androidTestImplementation("com.squareup.sqldelight:sqlite-driver:1.5.3")
-
-    implementation("androidx.glance:glance:1.0.0-alpha01")
-    implementation("androidx.glance:glance-appwidget:1.0.0-alpha01")
-
     implementation("androidx.compose.material3:material3:1.0.0-alpha02")
-
     implementation("com.google.accompanist:accompanist-insets:0.22.0-rc")
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.22.0-rc")
 }

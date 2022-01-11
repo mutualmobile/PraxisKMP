@@ -23,58 +23,58 @@ import com.google.accompanist.insets.statusBarsPadding
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 class TrendingReposUI : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-        val viewModel = TrendingReposVM(application)
-        setContent {
-            BaseiOAppTheme {
-                ProvideWindowInsets {
-                    Surface(
-                        modifier = Modifier
-                            .fillMaxSize()
-                    ) {
-                        val systemUiController = rememberSystemUiController()
-                        val useDarkIcons = isSystemInDarkTheme()
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    WindowCompat.setDecorFitsSystemWindows(window, false)
+    val viewModel = TrendingReposVM()
+    setContent {
+      BaseiOAppTheme {
+        ProvideWindowInsets {
+          Surface(
+            modifier = Modifier
+              .fillMaxSize()
+          ) {
+            val systemUiController = rememberSystemUiController()
+            val useDarkIcons = isSystemInDarkTheme()
 
-                        SideEffect {
-                            systemUiController.setSystemBarsColor(
-                                color = Color.Transparent,
-                                darkIcons = !useDarkIcons
-                            )
-                        }
-                        Scaffold(
-                            topBar = {
-                                Surface(
-                                    tonalElevation = 4.dp,
-                                ) {
-                                    SmallTopAppBar(
-                                        title = { Text(text = "Trending Kotlin Repositories") },
-                                        modifier = Modifier.statusBarsPadding()
-                                    )
-                                }
-                            },
-                            content = {
-                                TrendingReposListScreen(viewModel)
-                            },
-                            backgroundColor = Color.Transparent
-                        )
-                    }
-                }
+            SideEffect {
+              systemUiController.setSystemBarsColor(
+                color = Color.Transparent,
+                darkIcons = !useDarkIcons
+              )
             }
+            Scaffold(
+              topBar = {
+                Surface(
+                  tonalElevation = 4.dp,
+                ) {
+                  SmallTopAppBar(
+                    title = { Text(text = "Trending Kotlin Repositories") },
+                    modifier = Modifier.statusBarsPadding(),
+                  )
+                }
+              },
+              content = {
+                TrendingReposListScreen(viewModel)
+              },
+              backgroundColor = Color.Transparent
+            )
+          }
         }
+      }
     }
+  }
 }
 
 @Composable
 fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+  Text(text = "Hello $name!")
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    BaseiOKMMTheme {
-        Greeting("Android")
-    }
+  BaseiOKMMTheme {
+    Greeting("Android")
+  }
 }

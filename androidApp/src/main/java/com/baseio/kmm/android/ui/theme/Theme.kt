@@ -16,7 +16,6 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.ViewCompat
-import androidx.glance.LocalContext as GlanceLocalContext
 
 private val DarkColorScheme = darkColorScheme()
 
@@ -74,15 +73,6 @@ fun BaseiOKMMTheme(
         typography = Typography,
         content = content
     )
-}
-
-@Composable
-internal fun BaseiOKMMGlanceTheme(
-    glanceContext: Context = GlanceLocalContext.current,
-    darkTheme: Boolean = glanceContext.isDarkTheme,
-    content: @Composable () -> Unit
-) {
-    BaseiOKMMTheme(darkTheme = darkTheme, context = glanceContext, content = content)
 }
 
 private val Context.isDarkTheme: Boolean

@@ -15,5 +15,15 @@ class PraxisApp : Application() {
     override fun onCreate() {
         super.onCreate()
         initJSDependencies()
+        GlobalScope.launch {
+            precheckSqlite()
+        }
+    }
+
+    private suspend fun precheckSqlite() {
+        if (sharedComponent.provideGithubTrendingLocal().driver == null) {
+            val driver = DriverFactory(context = this).createDriverBlocking()
+            sharedComponent.provideGithubTrendingLocal().driver = driver
+        }
     }
 }

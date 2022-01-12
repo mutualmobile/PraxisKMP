@@ -34,3 +34,20 @@ object AndroidDependencies {
         "androidx.compose.ui:ui-tooling:${AndroidDependencyVersions.compose}"
     )
 }
+
+object AndroidMainDependencies {
+    val implementation = listOf(
+        "com.squareup.sqldelight:android-driver:${CommonDependencyVersions.sqlDelight}",
+        "io.ktor:ktor-client-android:${CommonDependencyVersions.ktor}",
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:${CommonDependencyVersions.coroutines}",
+    )
+}
+
+object AndroidTestDependencies {
+    val implementation = listOf(
+        "junit:junit:${CommonDependencyVersions.junit}"
+    )
+    val kotlin = listOf(
+        "test-junit"
+    )
+}

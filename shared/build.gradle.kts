@@ -1,10 +1,10 @@
 plugins {
-    kotlin("multiplatform")
-    kotlin("native.cocoapods")
-    id("com.android.library")
-    id("kotlinx-serialization")
-    id("com.squareup.sqldelight")
-    id("com.rickclephas.kmp.nativecoroutines")
+    CommonPlugins.plugins.forEach { dependency ->
+        id(dependency)
+    }
+    CommonPlugins.kotlinPlugins.forEach { dependency ->
+        kotlin(dependency)
+    }
 }
 
 version = "1.0"
@@ -17,8 +17,7 @@ kotlin {
     macosX64()
     macosArm64()
     watchosSimulatorArm64()
-    iosSimulatorArm64() //sure all ios dependencies support this target
-
+    iosSimulatorArm64() // sure all ios dependencies support this target
 
     js(IR) {
         binaries.executable()
@@ -41,47 +40,34 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("com.russhwolf:multiplatform-settings:0.8.1")
-                implementation("com.squareup.sqldelight:runtime:1.5.3")
-                implementation("io.ktor:ktor-client-core:1.6.7")
-                implementation("io.ktor:ktor-client-json:1.6.7")
-                implementation("io.ktor:ktor-client-logging:1.6.7")
-                implementation("io.ktor:ktor-client-serialization:1.6.7")
-                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.3.1")
-
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.3.2")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
-
-                api("io.insert-koin:koin-core:3.1.4")
-                api("io.insert-koin:koin-core:3.1.4")
+                CommonMainDependencies.implementation.forEach(::implementation)
+                CommonMainDependencies.api.forEach(::api)
             }
         }
         val commonTest by getting {
             dependencies {
-                implementation("com.russhwolf:multiplatform-settings-test:0.8.1")
-                implementation(kotlin("test-common"))
-                implementation(kotlin("test-annotations-common"))
+                CommonTestDependencies.implementation.forEach(::implementation)
+                CommonTestDependencies.kotlin.map { dependency ->
+                    kotlin(dependency)
+                }.forEach(::implementation)
             }
         }
         val androidMain by getting {
             dependencies {
-                implementation("com.squareup.sqldelight:android-driver:1.5.3")
-                implementation("io.ktor:ktor-client-android:1.6.7")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0")
+                AndroidMainDependencies.implementation.forEach(::implementation)
             }
         }
         val androidTest by getting {
             dependencies {
-                implementation(kotlin("test-junit"))
-                implementation("junit:junit:4.13.2")
+                AndroidTestDependencies.kotlin.map { dependency ->
+                    kotlin(dependency)
+                }.forEach(::implementation)
+                AndroidTestDependencies.implementation.forEach(::implementation)
             }
         }
         val jsMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-js:1.6.7")
-
-                implementation("com.squareup.sqldelight:sqljs-driver:1.5.3")
-
+                WebAppDependencies.implementation.forEach(::implementation)
             }
         }
         val iosX64Main by getting
@@ -93,22 +79,18 @@ kotlin {
 
         val macosX64Main by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-ios:1.6.7")
-                implementation("com.squareup.sqldelight:native-driver-macosx64:1.5.3")
+                MacOSMainDependencies.implementationx64.forEach(::implementation)
             }
         }
         val macosArm64Main by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-ios:1.6.7")
-                implementation("com.squareup.sqldelight:native-driver-macosarm64:1.5.3")
+                MacOSMainDependencies.implementationArm64.forEach(::implementation)
             }
         }
 
-
         val iosMain by creating {
             dependencies {
-                implementation("com.squareup.sqldelight:native-driver:1.5.3")
-                implementation("io.ktor:ktor-client-ios:1.6.7")
+                IOSMainDependencies.implementation.forEach(::implementation)
             }
             dependsOn(commonMain)
             watchosMain.dependsOn(this)

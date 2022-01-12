@@ -67,7 +67,7 @@ kotlin {
         }
         val jsMain by getting {
             dependencies {
-                WebAppDependencies.implementation.forEach(::implementation)
+                WebAppCommonMainDependencies.implementation.forEach(::implementation)
             }
         }
         val iosX64Main by getting

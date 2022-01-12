@@ -1,7 +1,11 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
-    id("kotlin-android")
+    AndroidPluginDependencies.plugins.forEach { (lib, v) ->
+        if (v.isNotBlank()) {
+            id(lib) version v
+        } else {
+            id(lib)
+        }
+    }
 }
 
 android {
@@ -32,7 +36,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.1.0-rc02"
+        kotlinCompilerExtensionVersion = AndroidDependencyVersions.composeKotlinCompiler
     }
     packagingOptions {
         resources {
@@ -43,16 +47,7 @@ android {
 
 dependencies {
     implementation(project(":shared"))
-    implementation("com.google.android.material:material:1.4.0")
-    implementation("androidx.appcompat:appcompat:1.4.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.2")
-    implementation("androidx.compose.ui:ui:1.1.0-rc01")
-    implementation("io.coil-kt:coil-compose:1.4.0")
-
-    implementation("androidx.compose.material:material:1.1.0-rc01")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.1.0-rc01")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
-    implementation("androidx.activity:activity-compose:1.4.0")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.1.0-rc01")
-    debugImplementation("androidx.compose.ui:ui-tooling:1.1.0-rc01")
+    AndroidDependencies.implementation.forEach(::implementation)
+    AndroidDependencies.androidTestImplementation.forEach(::androidTestImplementation)
+    AndroidDependencies.debugImplementation.forEach(::debugImplementation)
 }

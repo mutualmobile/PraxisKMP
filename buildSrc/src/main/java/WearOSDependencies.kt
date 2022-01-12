@@ -1,0 +1,2 @@
+object WearOSDependencyVersions
+object WearOSDependencies

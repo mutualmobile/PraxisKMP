@@ -1,0 +1,2 @@
+object SharedDependencyVersions
+object SharedDependencies

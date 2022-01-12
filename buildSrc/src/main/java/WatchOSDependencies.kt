@@ -1,0 +1,2 @@
+object WatchOSDependencyVersions
+object WatchOSDependencies

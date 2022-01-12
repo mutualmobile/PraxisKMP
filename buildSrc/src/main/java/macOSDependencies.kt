@@ -1,0 +1,2 @@
+object macOSDependencyVersions
+object macOSDependencies

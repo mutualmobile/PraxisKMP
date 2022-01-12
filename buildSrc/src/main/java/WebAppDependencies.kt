@@ -1,0 +1,2 @@
+object WebAppDependencyVersions
+object WebAppDependencies

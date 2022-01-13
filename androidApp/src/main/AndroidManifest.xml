@@ -11,11 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="donut"
+        android:label="@string/title_activity_trending_repos_ui"
         tools:ignore="RtlEnabled">
         <activity
             android:name=".TrendingReposUI"
             android:exported="true"
-            android:label="@string/title_activity_trending_repos_ui"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

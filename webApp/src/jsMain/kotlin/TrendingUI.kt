@@ -1,16 +1,24 @@
 import com.baseio.kmm.domain.model.GithubReposItem
 import com.baseio.kmm.features.trending.TrendingDataModel
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.collectLatest
+import kotlinx.css.Display
+import kotlinx.css.FlexDirection
+import kotlinx.css.display
+import kotlinx.css.flexDirection
+import kotlinx.html.js.onChangeFunction
+import org.w3c.dom.HTMLInputElement
 import react.*
 import react.dom.*
+import styled.css
+import styled.styledDiv
 
 external interface TrendingProps : Props
 
 val TrendingUI = fc<TrendingProps> {
   var trendingRepos: List<GithubReposItem> by useState(emptyList())
   var message: String by useState("")
-  var state by useState<TrendingDataModel.UiState>()
+  var state by useState<TrendingDataModel.DataState>()
+  var search by useState("")
 
   val dataModel = TrendingDataModel(onDataState = { stateNew ->
     state = stateNew
@@ -49,6 +57,42 @@ val TrendingUI = fc<TrendingProps> {
   h1 {
     +"Status :"
     +message
+  }
+
+  styledDiv{
+    css {
+      display = Display.flex
+      flexDirection = FlexDirection.column
+    }
+
+    div{
+      input {
+        attrs{
+          placeholder = "Search by language..."
+          value = search
+          onChangeFunction = {
+            val target = it.target as HTMLInputElement
+            search = target.value
+          }
+        }
+      }
+
+      button {
+        +"Search Now"
+
+        attrs {
+          onClick = {
+            dataModel.filterRecords(search)
+          }
+        }
+      }
+    }
+
+
+  }
+
+  h1{
+
   }
 
   div {

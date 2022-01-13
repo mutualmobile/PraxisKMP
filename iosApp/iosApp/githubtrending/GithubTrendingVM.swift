@@ -19,10 +19,6 @@ class GithubTrendingVM : ObservableObject{
     var loading = false
     @Published
     var error: String?
-
-    init() {
-        activate()
-    }
     
     func activate(){
         trendingDataModel = TrendingDataModel { [weak self] dataState in
@@ -40,8 +36,7 @@ class GithubTrendingVM : ObservableObject{
     func filter(searchText:String){
         trendingDataModel?.filterRecords(search:searchText)
     }
-    
-    
+
     func destroy(){
         trendingDataModel?.destroy()
     }

@@ -1,9 +1,9 @@
 pluginManagement {
-    repositories {
-        google()
-        gradlePluginPortal()
-        mavenCentral()
-    }
+  repositories {
+    google()
+    gradlePluginPortal()
+    mavenCentral()
+  }
 }
 
 rootProject.name = "BaseiOKMM"
@@ -12,3 +12,4 @@ include(":shared")
 include(":watchApp")
 include(":wearOS")
 include(":webApp")
+include(":compose-desktop")

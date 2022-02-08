@@ -2,6 +2,7 @@
 
 Minimal **Kotlin Multiplatform** project with SwiftUI, Jetpack Compose, Compose for Wear OS,. Currently running on
 
+* Desktop JVM (Jetpack Compose) ✅ DONE
 * Android (Jetpack Compose) ✅ DONE
 * Android App Widget 🚧 TODO
 * Wear OS (Compose for Wear OS) ✅ DONE
@@ -18,6 +19,10 @@ Minimal **Kotlin Multiplatform** project with SwiftUI, Jetpack Compose, Compose 
    see issue here: https://github.com/InsertKoinIO/koin/issues/388
 
 ### Screenshots
+
+* Compose Desktop (Compose for Desktop)
+
+<img src="art/art7.png" alt="drawing" style="width:200px;"/>
 
 * Android Wear OS (Compose for Wear OS)
 

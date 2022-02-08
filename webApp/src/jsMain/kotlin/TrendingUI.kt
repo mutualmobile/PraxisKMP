@@ -1,5 +1,5 @@
 import com.baseio.kmm.domain.model.GithubReposItem
-import com.baseio.kmm.features.trending.TrendingDataModel
+import com.baseio.kmm.features.trending.GithubTrendingDataModel
 import kotlinx.coroutines.*
 import kotlinx.css.Display
 import kotlinx.css.FlexDirection
@@ -17,26 +17,26 @@ external interface TrendingProps : Props
 val TrendingUI = fc<TrendingProps> {
   var trendingRepos: List<GithubReposItem> by useState(emptyList())
   var message: String by useState("")
-  var state by useState<TrendingDataModel.DataState>()
+  var state by useState<GithubTrendingDataModel.DataState>()
   var search by useState("")
 
-  val dataModel = TrendingDataModel(onDataState = { stateNew ->
+  val dataModel = GithubTrendingDataModel(onDataState = { stateNew ->
     state = stateNew
     when (stateNew) {
-      is TrendingDataModel.LoadingState -> {
+      is GithubTrendingDataModel.LoadingState -> {
         message = "Loading..."
       }
-      is TrendingDataModel.SuccessState -> {
+      is GithubTrendingDataModel.SuccessState -> {
         trendingRepos = stateNew.trendingList
         message = "Found repos..."
       }
-      TrendingDataModel.Complete -> {
+      GithubTrendingDataModel.Complete -> {
         message = "Completed loading!"
       }
-      TrendingDataModel.EmptyState -> {
+      GithubTrendingDataModel.EmptyState -> {
         message = "Emty state"
       }
-      is TrendingDataModel.ErrorState -> {
+      is GithubTrendingDataModel.ErrorState -> {
         message = stateNew.throwable.message ?: "Error"
       }
     }

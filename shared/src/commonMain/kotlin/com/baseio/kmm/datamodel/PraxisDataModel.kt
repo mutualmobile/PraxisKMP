@@ -1,4 +1,4 @@
-package com.baseio.kmm.mvm
+package com.baseio.kmm.datamodel
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

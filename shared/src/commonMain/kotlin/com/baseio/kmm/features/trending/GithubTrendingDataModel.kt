@@ -2,7 +2,7 @@ package com.baseio.kmm.features.trending
 
 import com.baseio.kmm.di.UseCasesComponent
 import com.baseio.kmm.domain.model.GithubReposItem
-import com.baseio.kmm.mvm.PraxisDataModel
+import com.baseio.kmm.datamodel.PraxisDataModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancel
@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.core.component.KoinComponent
 
-class TrendingDataModel(
+class GithubTrendingDataModel(
   private val onDataState: (DataState) -> Unit
 ) : PraxisDataModel(), KoinComponent {
 

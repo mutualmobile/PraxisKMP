@@ -17,24 +17,24 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
-import com.baseio.kmm.features.trending.TrendingDataModel
+import com.baseio.kmm.features.trending.GithubTrendingDataModel
 import com.google.accompanist.insets.navigationBarsPadding
 
 @Composable
 fun TrendingReposListScreen(viewModel: TrendingReposVM) {
   Column {
     val uiState by viewModel.uiState.collectAsState()
-    if (uiState is TrendingDataModel.LoadingState) {
+    if (uiState is GithubTrendingDataModel.LoadingState) {
       CircularProgressIndicator()
     }
 
-    AnimatedVisibility(visible = uiState is TrendingDataModel.ErrorState) {
-      Text(text = (uiState as TrendingDataModel.ErrorState).throwable.message ?:"Error", modifier = Modifier.padding(4.dp))
+    AnimatedVisibility(visible = uiState is GithubTrendingDataModel.ErrorState) {
+      Text(text = (uiState as GithubTrendingDataModel.ErrorState).throwable.message ?:"Error", modifier = Modifier.padding(4.dp))
     }
 
-    if(uiState is TrendingDataModel.SuccessState){
+    if(uiState is GithubTrendingDataModel.SuccessState){
       LazyColumn {
-        (uiState as TrendingDataModel.SuccessState).trendingList.forEach {
+        (uiState as GithubTrendingDataModel.SuccessState).trendingList.forEach {
           item {
             Row(modifier = Modifier
               .fillMaxWidth()

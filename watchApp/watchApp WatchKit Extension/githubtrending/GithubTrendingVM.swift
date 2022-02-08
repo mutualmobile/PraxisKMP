@@ -12,7 +12,7 @@ import Combine
 import KMPNativeCoroutinesCombine
 
 class GithubTrendingVM : ObservableObject{
-    private var trendingDataModel:TrendingDataModel?
+    private var trendingDataModel:GithubTrendingDataModel?
     
     @Published var repos : [UIRepo] = []
     @Published
@@ -25,10 +25,10 @@ class GithubTrendingVM : ObservableObject{
     }
     
     func activate(){
-        trendingDataModel = TrendingDataModel { [weak self] dataState in
-            self?.loading = dataState is TrendingDataModel.LoadingState
-            if(dataState is TrendingDataModel.SuccessState){
-                let listDataState =  dataState as! TrendingDataModel.SuccessState
+        trendingDataModel = GithubTrendingDataModel { [weak self] dataState in
+            self?.loading = dataState is GithubTrendingDataModel.LoadingState
+            if(dataState is GithubTrendingDataModel.SuccessState){
+                let listDataState =  dataState as! GithubTrendingDataModel.SuccessState
                 self?.repos = listDataState.trendingList.map({ item in
                     return UIRepo(author:item.author, name:item.name, avatar:item.avatar, url:item.url)
                 })

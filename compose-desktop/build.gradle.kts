@@ -1,29 +1,45 @@
 import org.jetbrains.compose.compose
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
-  kotlin("jvm")
+  kotlin("multiplatform")
   id("org.jetbrains.compose") version ComposeDesktopDependencyVersions.composeDesktopWeb
-  application
 }
 
 group = "com.mutualmobile"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 repositories {
   mavenCentral()
   maven(url = "https://maven.pkg.jetbrains.space/public/p/compose/dev")
 }
 
-dependencies {
-  implementation(compose.desktop.macos_arm64)
-  implementation(project(":shared"))
+
+kotlin {
+  jvm {
+    compilations.all {
+      kotlinOptions.jvmTarget = "11"
+    }
+    withJava()
+  }
+  sourceSets {
+    val jvmMain by getting {
+      dependencies {
+        implementation(project(":shared"))
+        implementation(compose.desktop.currentOs)
+      }
+    }
+    val jvmTest by getting
+  }
 }
 
-tasks.withType<KotlinCompile> {
-  kotlinOptions.jvmTarget = "11"
-}
-
-application {
-  mainClass.set("MainKt")
+compose.desktop {
+  application {
+    mainClass = "MainKt"
+    nativeDistributions {
+      targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+      packageName = "jvm"
+      packageVersion = "1.0.0"
+    }
+  }
 }

@@ -10,24 +10,30 @@ plugins {
 version = "1.0"
 
 kotlin {
-    android()
-    iosX64()
-    iosArm64()
-    watchos()
-    macosX64()
-    macosArm64()
-    watchosSimulatorArm64()
-    iosSimulatorArm64() // sure all ios dependencies support this target
-    jvm() // TODO not able to access shared code withing jvm 😭
-
-    js(IR) {
-        binaries.executable()
-        browser {
-            commonWebpackConfig {
-                cssSupport.enabled = true
+    targets{
+        android()
+        iosX64()
+        iosArm64()
+        watchos()
+        macosX64()
+        macosArm64()
+        watchosSimulatorArm64()
+        iosSimulatorArm64() // sure all ios dependencies support this target
+        jvm("desktop") {
+            compilations.all {
+                kotlinOptions.jvmTarget = "11"
+            }
+        }
+        js(IR) {
+            binaries.executable()
+            browser {
+                commonWebpackConfig {
+                    cssSupport.enabled = true
+                }
             }
         }
     }
+
     cocoapods {
         summary = "Some description for the Shared Module"
         homepage = "Link to the Shared Module homepage"
@@ -58,7 +64,7 @@ kotlin {
                 AndroidMainDependencies.implementation.forEach(::implementation)
             }
         }
-        val jvmMain  by getting {
+        val desktopMain by getting {
             dependencies {
                 ComposeDesktopDependencies.implementation.forEach(::implementation)
             }
@@ -117,6 +123,7 @@ kotlin {
         }
     }
 }
+
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions {

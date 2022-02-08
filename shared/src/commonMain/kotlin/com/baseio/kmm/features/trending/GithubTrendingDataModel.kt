@@ -65,7 +65,6 @@ class GithubTrendingDataModel(
       _trendingStateFlow.value = LoadingState
       val repos = useCasesComponent.provideFetchTrendingReposUseCase().perform(search)
       useCasesComponent.provideSaveTrendingReposUseCase().perform(repos)
-      _trendingStateFlow.value = Complete
     }
 
   }

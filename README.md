@@ -19,6 +19,10 @@ Minimal **Kotlin Multiplatform** project with SwiftUI, Jetpack Compose, Compose 
 
 ### Screenshots
 
+* Compose Desktop (Compose for Desktop)
+
+<img src="art/art7.png" alt="drawing" style="width:200px;"/>
+
 * Android Wear OS (Compose for Wear OS)
 
 <img src="art/art6.png" alt="drawing" style="width:200px;"/>

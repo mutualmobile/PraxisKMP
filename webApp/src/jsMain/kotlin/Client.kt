@@ -1,7 +1,7 @@
 import com.baseio.kmm.db.DriverFactory
 import com.baseio.kmm.di.SharedComponent
 import com.baseio.kmm.di.UseCasesComponent
-import com.baseio.kmm.di.initJSDependencies
+import com.baseio.kmm.di.initSqlDelightExperimentalDependencies
 import react.dom.render
 import kotlinx.browser.document
 import kotlinx.browser.window
@@ -10,7 +10,7 @@ val sharedComponent = SharedComponent()
 val useCasesComponent = UseCasesComponent()
 
 fun main() {
-  initJSDependencies()
+  initSqlDelightExperimentalDependencies()
   window.onload = { _ ->
     val rootDiv = document.getElementById("root")
     render(rootDiv!!) {

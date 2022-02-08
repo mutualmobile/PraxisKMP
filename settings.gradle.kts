@@ -3,6 +3,7 @@ pluginManagement {
         google()
         gradlePluginPortal()
         mavenCentral()
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
 }
 
@@ -12,3 +13,4 @@ include(":shared")
 include(":watchApp")
 include(":wearOS")
 include(":webApp")
+include(":compose-desktop")

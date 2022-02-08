@@ -18,6 +18,7 @@ kotlin {
     macosArm64()
     watchosSimulatorArm64()
     iosSimulatorArm64() // sure all ios dependencies support this target
+    jvm()
 
     js(IR) {
         binaries.executable()
@@ -57,6 +58,12 @@ kotlin {
                 AndroidMainDependencies.implementation.forEach(::implementation)
             }
         }
+        val jvmMain  by getting {
+            dependencies {
+                ComposeDesktopDependencies.implementation.forEach(::implementation)
+            }
+        }
+
         val androidTest by getting {
             dependencies {
                 AndroidTestDependencies.kotlin.map { dependency ->
@@ -110,6 +117,13 @@ kotlin {
         }
     }
 }
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
 
 sqldelight {
     database("BaseIoDB") {

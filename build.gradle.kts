@@ -5,7 +5,8 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        AppDependencies.plugins.forEach { dependency ->
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10")
+      AppDependencies.plugins.forEach { dependency ->
             classpath(dependency)
         }
     }

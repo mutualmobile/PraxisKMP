@@ -18,13 +18,11 @@ import org.koin.core.module.Module
 import org.koin.dsl.module
 import org.koin.core.component.get
 
-expect fun platformModule(): Module
-
 fun initSharedDependencies() = startKoin {
     modules(commonModule, useCaseModule, platformModule())
 }
 
-fun initJSDependencies() = startKoin {
+fun initSqlDelightExperimentalDependencies() = startKoin {
     modules(jsModule, useCaseModule, platformModule())
 }
 

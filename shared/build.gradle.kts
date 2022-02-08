@@ -18,7 +18,7 @@ kotlin {
     macosArm64()
     watchosSimulatorArm64()
     iosSimulatorArm64() // sure all ios dependencies support this target
-    jvm()
+    jvm() // TODO not able to access shared code withing jvm 😭
 
     js(IR) {
         binaries.executable()

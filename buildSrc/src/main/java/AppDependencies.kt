@@ -1,6 +1,6 @@
 object AppDependencyVersions {
     const val kotlinGradle = "1.6.10"
-    const val androidGradle = "7.0.4"
+    const val androidGradle = "7.1.1"
     const val kotlinxSerialization = "1.6.10"
     const val sqlDelight = "1.5.3"
     const val nativeCoroutines = "0.11.1-new-mm"

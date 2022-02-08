@@ -1,5 +1,3 @@
-package com.baseio.kmm.composedesktop
-
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.unit.dp

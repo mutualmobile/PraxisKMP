@@ -16,12 +16,12 @@ repositories {
 }
 
 dependencies {
+  implementation(compose.desktop.macos_arm64)
   implementation(project(":shared"))
-  implementation(compose.desktop.currentOs)
 }
 
 tasks.withType<KotlinCompile> {
-  kotlinOptions.jvmTarget = "1.8"
+  kotlinOptions.jvmTarget = "11"
 }
 
 application {

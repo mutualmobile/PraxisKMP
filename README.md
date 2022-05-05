@@ -11,6 +11,7 @@ Minimal **Kotlin Multiplatform** project with SwiftUI, Jetpack Compose, Compose 
 * watchOS (SwiftUI) ✅ DONE
 * macOS (SwiftUI) ✅ DONE
 * Web (ReactJS) ✅ DONE
+* Web (Compose-Web) ⚠️ EXPERIMENTAL
 
 ### TODOs
 

@@ -2,6 +2,7 @@ pluginManagement {
   repositories {
     google()
     gradlePluginPortal()
+    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     mavenCentral()
   }
 }
@@ -13,3 +14,4 @@ include(":watchApp")
 include(":wearOS")
 include(":webApp")
 include(":compose-desktop")
+include(":compose-web")

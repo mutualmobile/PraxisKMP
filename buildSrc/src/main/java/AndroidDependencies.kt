@@ -10,11 +10,11 @@ object AndroidDependencyVersions {
   const val material = "1.4.0"
   const val appCompat = "1.4.0"
   const val constraintLayout = "2.1.2"
-  const val compose = "1.1.0-rc01"
-  const val composeKotlinCompiler = "1.1.0-rc02"
+  const val compose = "1.2.0"
+  const val composeKotlinCompiler = "1.2.0"
   const val coil = "1.4.0"
   const val lifecycleRuntime = "2.4.0"
-  const val composeActivity = "1.4.0"
+  const val composeActivity = "1.5.0-rc01"
   const val ACCOMPANIST_VERSION = "0.24.1-alpha"
 }
 

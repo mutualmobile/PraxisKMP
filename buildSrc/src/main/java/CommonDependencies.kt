@@ -7,6 +7,8 @@ object CommonDependencyVersions {
     const val coroutines = "1.6.0"
     const val koin = "3.1.4"
     const val junit = "4.13.2"
+    const val compileSdkVersion = 32
+    const val targetSdkVersion = 32
 }
 
 object CommonMainDependencies {

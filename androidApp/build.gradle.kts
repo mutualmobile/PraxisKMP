@@ -9,11 +9,11 @@ plugins {
 }
 
 android {
-    compileSdk = 31
+    compileSdk = CommonDependencyVersions.compileSdkVersion
     defaultConfig {
         applicationId = "com.baseio.kmm.android"
         minSdk = 21
-        targetSdk = 31
+        targetSdk = CommonDependencyVersions.targetSdkVersion
         versionCode = 1
         versionName = "1.0"
         vectorDrawables {

@@ -14,11 +14,10 @@ class TrendingReposUI : ComponentActivity() {
     val viewModel = TrendingReposVM(application)
     setContent {
       BaseiOKMMTheme {
-        val materialBlue700 = Color(0xFF1976D2)
         // A surface container using the 'background' color from the theme
         Surface(color = MaterialTheme.colors.background) {
           Scaffold(
-            content = {
+            content = { _ ->
                       TrendingReposListScreen(viewModel)
             },
           )
